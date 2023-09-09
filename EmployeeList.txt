@@ -1,0 +1,6 @@
+S/N	NAME		AGE	CITY 
+1.	Jane		25	Houston
+2.	Michael		32	Paris
+3.	Phil		45	Calabasas
+4.	Mark		60	Toronto
+5.	Ophelia		57	Chicago
