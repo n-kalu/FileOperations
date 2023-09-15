@@ -80,7 +80,7 @@ int main()
                     return (1);
                 }
                 
-                //Enter text you want to append and save in the 'holdAppenFile' buffer
+                //Enter text you want to append and save in the 'holdAppenFile' buffer.
                 printf("\nEnter the Text you want to Append: ");
                 fgets(holdAppendFile, sizeof(holdAppendFile), stdin);
 
@@ -109,7 +109,7 @@ int main()
                     return (1);
                 }  
 
-                // Temporary buffer to store copied/concatenated string(Character Array)
+                // Temporary buffer to store copied/concatenated string(Character Array).
                 char buf[1000];
 
                 printf("\nEnter the Line Number you would like to Replace: ");
@@ -121,13 +121,13 @@ int main()
                 //Read file content and save in a buffer(holdReadFile) until EOF is detected.
                 while (fgets(holdReadFile, sizeof(holdReadFile), rp))
                 {
-                    //check if current line number being read is thesame as the line number the user wants to replace
+                    //check if current line number being read is thesame as the line number the user wants to replace.
                     if(currentLine == lineNo)
                     {
                         printf("\nEnter the text: ");
                         fgets(holdReadFile, sizeof(holdReadFile), stdin);
 
-                        //For each iteration, copy/concatenate the character array in "holdReadFile" into a temporary buffer "buf"
+                        //For each iteration, copy/concatenate the character array in "holdReadFile" into a temporary buffer "buf".
                         if (currentLine == 1)
                         {
                             strcpy(buf, holdReadFile);
@@ -154,7 +154,7 @@ int main()
 
                 }
 
-                //Set file pointer to point to the begining/first character of the file
+                //Set file pointer to point to the begining/first character of the file.
                 fseek(rp,0,SEEK_SET);
 
                 //Replace existing text in file with concatenated string saved in the "buf" temporary buffer.
@@ -178,14 +178,14 @@ int main()
 
                 FILE *de = fopen(fileName, "r");
 
-                //Check that file open was successful
+                //Check that file open was successful.
                 if (de == NULL)
                 {
                     printf("\nError! Wrong File Name. Please try again.\n");
                     return (1);
                 }  
 
-                // Temporary buffer to store copied/concatenated string(Character Array)
+                // Temporary buffer to store copied/concatenated string(Character Array).
                 char buf[1000];
 
                 printf("\nEnter the Line Number you would like to Delete: ");
@@ -197,7 +197,7 @@ int main()
                 //Read file content and save in a buffer(holdReadFile) until EOF is detected.
                 while (fgets(holdReadFile, sizeof(holdReadFile), de))
                 {
-                    //check if current line number being read is thesame as the line number the user wants to replace
+                    //check if current line number being read is thesame as the line number the user wants to replace.
                     if(currentLine == lineNo)
                     {
                         currentLine++;
@@ -222,7 +222,7 @@ int main()
 
                 //Open file and clear content in file.
                 FILE *dw = fopen(fileName, "w");
-                //write string saved in the "buf" temporary buffer into the
+                //write string saved in the "buf" temporary buffer into the.
                 fprintf(dw, "%s", buf);
                 
                 //print out the result on the screen as well.
