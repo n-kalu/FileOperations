@@ -235,8 +235,7 @@ int main()
             }
             else
             {
-                // printf("ERROR! The number you entered is not on the Menu. Please try again.\n");
-                printf("Fuck You!");
+                printf("ERROR! The number you entered is not on the Menu. Please try again.\n");
             }
             
             break;
