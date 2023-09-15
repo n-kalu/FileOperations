@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <string.h>
 
 
@@ -20,13 +19,21 @@ int main()
     int currentLine = 1;
 
     printf("OPTIONS:\n1 - Read File.\n2 - Create/Edit File.\n\nEnter a number: ");
-    fMenu = getchar();
+
+    scanf("%c", &fMenu);
+
+    //clear the "Stdin" buffer.
+    while (getchar() != '\n'){ }
+    
    
     switch (fMenu)
     {
         case '1':
             printf("\nEnter the File Name (e.g. file.txt): ");
             scanf("%s", fileName);
+
+            //clear the "Stdin" buffer.
+            while (getchar() != '\n'){ }
 
             //open file
             FILE *op = fopen(fileName, "r");
@@ -54,18 +61,15 @@ int main()
         case '2':
             printf("\nMORE OPTIONS:\n1 - Append new line of text.\n2 - Replace existing line of text with new text.\n3 - Delete a line of text.\n\nEnter a number: ");
 
-            //clear up any character left in the Stdin buffer so the next code to read from Stdin will work.
-            while (getchar() != '\n')
-            {
-                //Loop until you get to the '\n' character
-            }
-            
             sMenu = getchar();
             
             if(sMenu == '1')
             {
                 printf("\nEnter the File Name (e.g. file.txt): ");
                 scanf("%s", fileName);
+
+                //clear the "Stdin" buffer.
+                while (getchar() != '\n'){ }
 
                 FILE *ap = fopen(fileName, "a");
 
@@ -76,12 +80,6 @@ int main()
                     return (1);
                 }
                 
-                //clear up any character left in the Stdin buffer so the next code to read from Stdin will work.
-                while (getchar() != '\n')
-                {
-                    //Loop until you get to the '\n' character
-                }
-
                 //Enter text you want to append and save in the 'holdAppenFile' buffer
                 printf("\nEnter the Text you want to Append: ");
                 fgets(holdAppendFile, sizeof(holdAppendFile), stdin);
@@ -99,6 +97,9 @@ int main()
                 printf("\nEnter the File Name (e.g. file.txt): ");
                 scanf("%s", fileName);
 
+                //clear the "Stdin" buffer.
+                while (getchar() != '\n'){ }
+
                 FILE *rp = fopen(fileName, "r+");
 
                 //Check that file open was successful
@@ -111,21 +112,11 @@ int main()
                 // Temporary buffer to store copied/concatenated string(Character Array)
                 char buf[1000];
 
-                //clear up any character left in the Stdin buffer so the next code to read from Stdin will work.
-                while (getchar() != '\n')
-                {
-                    //Loop until you get to the '\n' character
-                }
-
                 printf("\nEnter the Line Number you would like to Replace: ");
                 scanf("%d", &lineNo);
-            
 
-                //clear up any character left in the Stdin buffer so the next code to read from Stdin will work.
-                while (getchar() != '\n')
-                {
-                    //Loop until you get to the '\n' character
-                }
+                //clear the "Stdin" buffer.
+                while (getchar() != '\n'){ }
                
                 //Read file content and save in a buffer(holdReadFile) until EOF is detected.
                 while (fgets(holdReadFile, sizeof(holdReadFile), rp))
@@ -182,6 +173,9 @@ int main()
                 printf("\nEnter the File Name (e.g. file.txt): ");
                 scanf("%s", fileName);
 
+                //clear the "Stdin" buffer.
+                while (getchar() != '\n'){ }
+
                 FILE *de = fopen(fileName, "r");
 
                 //Check that file open was successful
@@ -194,23 +188,12 @@ int main()
                 // Temporary buffer to store copied/concatenated string(Character Array)
                 char buf[1000];
 
-                //clear up any character left in the Stdin buffer so the next code to read from Stdin will work.
-                while (getchar() != '\n')
-                {
-                    //Loop until you get to the '\n' character
-                }
-
                 printf("\nEnter the Line Number you would like to Delete: ");
                 scanf("%d", &lineNo);
-            
                 
-
-                //clear up any character left in the Stdin buffer so the next code to read from Stdin will work.
-                while (getchar() != '\n')
-                {
-                    //Loop until you get to the '\n' character
-                }
-               
+                //clear the "Stdin" buffer.
+                while (getchar() != '\n'){ }
+                           
                 //Read file content and save in a buffer(holdReadFile) until EOF is detected.
                 while (fgets(holdReadFile, sizeof(holdReadFile), de))
                 {
@@ -252,7 +235,8 @@ int main()
             }
             else
             {
-                printf("ERROR! The number you entered is not on the Menu. Please try again.\n");
+                // printf("ERROR! The number you entered is not on the Menu. Please try again.\n");
+                printf("Fuck You!");
             }
             
             break;
